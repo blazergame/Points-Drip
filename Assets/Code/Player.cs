@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
+	public GameManager GameManager;
 
     public float movementSpeed = 10f;
     public float upwardSpeed = 0.1f;
@@ -31,6 +33,17 @@ public class Player : MonoBehaviour {
         //transform.position = new Vector3(transform.position.x, transform.position.y + upwardSpeed * Time.fixedDeltaTime);
     }
 
-
-
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		switch(collision.gameObject.tag)
+		{
+			case Helper.Tag.DEAD_TAG:
+				GameManager.GameOver();
+				return;
+			case Helper.Tag.POINT_TAG:
+				return;
+			default:
+				return;
+		}
+	}
 }
