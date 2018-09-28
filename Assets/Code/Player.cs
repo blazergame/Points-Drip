@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     float movement = 0f;
     Rigidbody2D rb;
 
+    private int score = 0;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -41,6 +43,11 @@ public class Player : MonoBehaviour
 				GameManager.GameOver();
 				return;
 			case Helper.Tag.POINT_TAG:
+                score++;
+                Debug.Log(score);
+                GameManager.AddPoint();
+                GameManager.UpdateScore();
+                
 				return;
 			default:
 				return;
