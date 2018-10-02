@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +8,7 @@ public class GameManager : MonoBehaviour {
 
 
     private int score = 0;
-    public GUIText scoreText;
+	public TextMeshProUGUI ScoreText;
     public Menu Menu;
 
     private void Start()
@@ -41,8 +42,8 @@ public class GameManager : MonoBehaviour {
 
     public void UpdateScore()
     {
-        scoreText.text = "Score: " + this.score;
-    }
+		ScoreText.text = "Score: " + this.score;
+	}
 
  
 
