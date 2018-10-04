@@ -13,11 +13,11 @@ public class CameraFollow : MonoBehaviour
         if (target.position.y > transform.position.y)
         {
              newPos = new Vector3(transform.position.x, target.position.y, transform.position.z);
-            transform.position = newPos;
+             transform.position = newPos;
         }
         
         //Move camera upwards
-        transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.up * (Time.deltaTime * 2), Space.World);
 
     }
 }

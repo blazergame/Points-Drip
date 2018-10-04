@@ -13,11 +13,10 @@ public class Player : MonoBehaviour
     float movement = 0f;
     Rigidbody2D rb;
 
-    private int score = 0;
-
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
+
 	}
 
     // Update is called once per frame
@@ -40,15 +39,17 @@ public class Player : MonoBehaviour
 		switch(collision.gameObject.tag)
 		{
 			case Helper.Tag.DEAD_TAG:
+
 				GameManager.GameOver();
 				return;
+
 			case Helper.Tag.POINT_TAG:
-                score++;
-                Debug.Log(score);
+
                 GameManager.AddPoint();
                 GameManager.UpdateScore();
                 
 				return;
+
 			default:
 				return;
 		}

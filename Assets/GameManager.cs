@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     private int score = 0;
 	public TextMeshProUGUI ScoreText;
     public Menu Menu;
+    public Music music;
 
     private void Start()
     {
@@ -22,7 +23,8 @@ public class GameManager : MonoBehaviour {
 	{
 		Time.timeScale = 0;
 		Menu.gameObject.SetActive(true);
-	}
+        music.ToggleMusic(false);
+    }
 
 	public void Restart()
 	{
