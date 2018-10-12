@@ -16,10 +16,7 @@ public class Music : MonoBehaviour
 
     public void ToggleMusic(bool turnOn)
     {
-        if(turnOn)
-            myAudio.mute = false;
-        else
-            myAudio.mute = true;
+         myAudio.mute = turnOn ? false : true;
     }
 
 }

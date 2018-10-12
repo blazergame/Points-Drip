@@ -45,9 +45,9 @@ public class Player : MonoBehaviour
 
 			case Helper.Tag.POINT_TAG:
 
+                GameManager.DisappearOnTouch(collision.gameObject);
                 GameManager.AddPoint();
-                GameManager.UpdateScore();
-                
+                GameManager.UpdateScore();       
 				return;
 
 			default:
