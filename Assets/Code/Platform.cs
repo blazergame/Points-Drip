@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour {
 
-    public float jumpForce = 10f;
+    public float jumpForce = 2f;
+
+    /**
+     * Makes platform jumpy
+     * 
+     * 
+     **/
 
     void OnCollisionEnter2D(Collision2D collision)
     {

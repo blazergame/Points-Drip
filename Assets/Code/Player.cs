@@ -30,8 +30,6 @@ public class Player : MonoBehaviour
         Vector2 velocity = rb.velocity;
         velocity.x = movement;
         rb.velocity = velocity;
-
-        //transform.position = new Vector3(transform.position.x, transform.position.y + upwardSpeed * Time.fixedDeltaTime);
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)

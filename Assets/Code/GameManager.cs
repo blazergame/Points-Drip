@@ -29,11 +29,19 @@ public class GameManager : MonoBehaviour {
 
     public void GameOver()
 	{
+        SoundManager.PlaySound("SawSound");
 		Time.timeScale = 0;
-        SceneManager.LoadScene("RestartScene");     //Reloads the scene to restart
+        music.ToggleMusic(false);
+        SceneManager.LoadScene("RestartScene");     //Reloads the scene to restart      
     }
 
-	public void StartGame()
+    IEnumerator DelayScreen()
+    {
+        yield return new WaitForSeconds(2f);
+    }
+
+
+    public void StartGame()
 	{
         Time.timeScale = 1;                //Start game object movement
         Menu.gameObject.SetActive(false);  //Hide the menu
@@ -58,8 +66,11 @@ public class GameManager : MonoBehaviour {
 
     public void DisappearOnTouch(GameObject gameObject)
     {
-        if(gameObject.tag == Helper.Tag.POINT_TAG)
+        if (gameObject.tag == Helper.Tag.POINT_TAG)
+        {
+            SoundManager.PlaySound("CoinSound");
             gameObject.SetActive(false);
+        }
     }
 
 }
