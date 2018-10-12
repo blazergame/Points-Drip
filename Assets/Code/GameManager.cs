@@ -24,14 +24,13 @@ public class GameManager : MonoBehaviour {
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);     //Reloads the scene - like resets from start
+        StartGame();
     }
 
     public void GameOver()
 	{
 		Time.timeScale = 0;
-		Menu.gameObject.SetActive(true);
-        music.ToggleMusic(false);
+        SceneManager.LoadScene("RestartScene");     //Reloads the scene to restart
     }
 
 	public void StartGame()

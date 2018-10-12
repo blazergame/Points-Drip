@@ -11,4 +11,4 @@ TODO:
 - [X] Setup points scoring
 - [ ] New name for game
 - [X] Coins disappear when touched
-- [ ] Menu Setup 
+- [X] Menu Setup 
