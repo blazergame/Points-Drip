@@ -12,3 +12,6 @@ TODO:
 - [ ] New name for game
 - [X] Coins disappear when touched
 - [X] Menu Setup 
+- [X] Fix Screen Orientation to stay portrait
+- [ ] Touch movement (works but buggy)
+

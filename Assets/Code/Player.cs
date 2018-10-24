@@ -12,18 +12,40 @@ public class Player : MonoBehaviour
 
     float movement = 0f;
     Rigidbody2D rb;
+    private float screenCenterX;
 
-    // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
+        screenCenterX = Screen.width;
+    }
 
-	}
+    /*********
+     * FIX:
+     * There is something wrong with movement. It moves smoothly left/right but game object suddenly disappears from screen. 
+     *********/
 
-    // Update is called once per frame
-    // Increase horizontal movement speed
     void Update()
     {
-        movement = Input.GetAxis("Horizontal") * movementSpeed;
+        // movement = Input.GetAxis("Horizontal") * movementSpeed;
+
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0); // get first touch since touch count is greater than zero
+
+            if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
+            {
+                // get the touch position from the screen touch to world point
+                Vector3 touchedPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x * 1.0f, 0, 0));
+                // lerp and set the position of the current object to that of the touch, but smoothly over time.
+                transform.position = Vector3.Lerp(transform.position, touchedPos, Time.deltaTime);
+                
+            }
+        }
+    }
+
+    private void moveCharacter(float horizontalInput)
+    {
+        rb.AddForce(new Vector2(horizontalInput * movementSpeed * Time.deltaTime, 0));
     }
 
     void FixedUpdate () {
